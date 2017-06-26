@@ -1,0 +1,32 @@
+<div class = "jumbotron">
+<h1 class= "display-3">copy your error message below </h1>
+<br>
+<%= form_tag error_help_path, method: :post do%>
+  <div class="form-group">
+      <label>Error message</label>
+      <br>
+      <textarea name="error", placeholder="paste your error message here..", class="form-control", rows="6", style="white-space: pre-wrap;"><%= @message if @message%></textarea>
+      <!-- <%= text_field_tag "error", @message, class:"form-control", rows:"6", style: "white-space: pre-wrap;" %> -->
+  </div>
+  <%= submit_tag "get help" unless @help%>
+<% end %>
+<div>
+
+<%if @help && @id == -2 %>
+  <div class = "alert alert-danger">
+   <p> <strong>WTF!!</strong> <%= @help %> </p>
+  </div>
+<% elsif @help && @id == -1 %>
+  <p><%= @help %></p>
+  <div class = "alert alert-warning">
+   <p> <strong>Hmm..</strong> Your message is now on our todo-list, we'll try our best to cover it. </p>
+  </div>
+  <br>
+  <button type="button" class="btn btn-link" onclick="location.href = 'https://github.com/Youssefares/python-error-helper/issues'">Create an issue on Github</button>
+<% elsif @help && @id > -1 %>
+  <p><%= @help %></p>
+<% end %>
+
+<%if @help %>
+  <%= link_to "New error message", error_index_path %>
+<% end %>
