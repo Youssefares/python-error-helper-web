@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get 'error/index'
+  get 'error/list'
   post 'error/help'
-  root 'error#index'
+
+  Rails.application.routes.draw do
+    resources :error
+    root 'error#index'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
