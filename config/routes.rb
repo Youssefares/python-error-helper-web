@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'error/index'
   get 'error/list'
   post 'error/help'

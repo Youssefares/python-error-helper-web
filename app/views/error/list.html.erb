@@ -6,10 +6,16 @@
   </thead>
   <tbody>
     <% @uncovered_errors.each do |error| %>
-    <tr>
-      <td><%= error.message %></td>
-      <td><%= link_to 'mark resolved', error_path(error), method: :delete %></td>
-    </tr>
+      <% if admin_signed_in? %>
+        <tr>
+          <td><%= error.message %></td>
+          <td><%= link_to 'mark resolved', error_path(error), method: :delete %></td>
+        </tr>
+      <%else %>
+        <tr>
+          <td><%= error.message %></td>
+        </tr>
+      <%end %>
     <% end %>
   </tbody>
 </table>
