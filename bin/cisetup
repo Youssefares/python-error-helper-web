@@ -1,4 +1,4 @@
-export GITHUB_ACCESS_TOKEN=<your github access token>
+export GITHUB_ACCESS_TOKEN= 1806b6ae469581f764b1a09df1d1b6d75d5a6e5c
 
 export PULL_REQUEST_URL=${CI_PULL_REQUEST}
 
