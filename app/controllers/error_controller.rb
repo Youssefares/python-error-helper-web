@@ -7,6 +7,7 @@ class ErrorController < ApplicationController
   end
 
   def destroy
+      
     @error = Error.find(params[:id])
     @error.destroy
 
