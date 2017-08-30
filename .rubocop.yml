@@ -1,0 +1,14 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.2
+  # Cop names are not d§splayed in offense messages by default. Change behavior
+  # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
+  # option.
+  DisplayCopNames: true
+
+# Style
+Style/EmptyMethod:
+    Enabled: false
+# Layout
