@@ -13,7 +13,7 @@ jobs:
         key: rails-demo-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
-      - run: apt-get install cmake
+      - run: sudo apt-get install cmake
       - run: bundle install --path vendor/bundle
 
       # Store bundle cache
