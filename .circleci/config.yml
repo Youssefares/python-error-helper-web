@@ -16,7 +16,7 @@ jobs:
       # Bundle install dependencies
       - run: sudo apt-get install cmake
       - run: bundle install --path vendor/bundle
-      # - run: bin/bundle exec pronto run -f github_pr -c origin/master
+      - run: bin/bundle exec pronto run -f github_pr -c origin/master
 
       # Store bundle cache
       - type: cache-save
