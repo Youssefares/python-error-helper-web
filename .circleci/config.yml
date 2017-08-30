@@ -1,5 +1,14 @@
+
 version: 2
 jobs:
+  dependencies:
+    post:
+      - ./bin/cisetup
+
+  checkout:
+    post:
+      - git fetch origin --depth=1000000
+
   build:
     working_directory: ~/circleci-demo-ruby-rails
     docker:
