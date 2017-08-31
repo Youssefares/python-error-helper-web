@@ -1,5 +1,6 @@
 version: 2
 jobs:
+
   build:
     working_directory: ~/circleci-demo-ruby-rails
     docker:
@@ -13,7 +14,9 @@ jobs:
         key: rails-demo-{{ checksum "Gemfile.lock" }}
 
       # Bundle install dependencies
+      - run: sudo apt-get install cmake
       - run: bundle install --path vendor/bundle
+      - run: bin/bundle exec pronto run -f github_pr -c origin/master
 
       # Store bundle cache
       - type: cache-save
@@ -25,7 +28,7 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      
+
       # Save artifacts
       - type: store_test_results
         path: /tmp/test-results
