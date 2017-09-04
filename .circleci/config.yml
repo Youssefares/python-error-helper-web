@@ -17,6 +17,7 @@ jobs:
       - run: sudo apt-get install cmake
       - run: bundle install --path vendor/bundle
       - run: bin/bundle exec pronto run -f github_pr -c origin/master
+      - run: echo "just updating any darn thing to create a new darn PR"
 
       # Store bundle cache
       - type: cache-save
