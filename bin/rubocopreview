@@ -5,13 +5,13 @@ if bin/bundle exec pronto run -f github_pr -c origin/master --exit-code
 then
 	curl -XPOST -H "Authorization:token $PRONTO_GITHUB_ACCESS_TOKEN" https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/$CIRCLE_SHA1 -d "{
 	 \"state\":\"success\",
-	 \"description\":\"rubocop style check has found violations\",
+	 \"description\":\"rubocop style checks have passed!\",
 	 \"context\":\"Rubocop\"
 	}"
 else
 	curl -XPOST -H "Authorization:token $PRONTO_GITHUB_ACCESS_TOKEN" https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/$CIRCLE_SHA1 -d "{
 	 \"state\":\"failure\",
-	 \"description\":\"rubocop style check has found violations\",
+	 \"description\":\"rubocop style checks have failed!\",
 	 \"context\":\"Rubocop\"
 	}"
 fi
