@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-if bin/bundle exec pronto run -f github_pr -c origin/master
+if bin/bundle exec pronto run -f github_pr -c origin/master --exit-code
 then
 	echo "all is good"
 else
