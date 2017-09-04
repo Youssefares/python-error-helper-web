@@ -3,7 +3,17 @@
 
 if bin/bundle exec pronto run -f github_pr -c origin/master --exit-code
 then
-	echo "all is good"
+	curl -XPOST -H "Authorization:token $PRONTO_GITHUB_ACCESS_TOKEN" https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/$CIRCLE_SHA1 -d "{
+	 \"state\":\"success\",
+	 \"target_url\":\"google.com\",
+	 \"description\":\"rubocop style check has found violations\",
+	 \"context\":\"Rubocop\"
+	}"
 else
-	echo "request changes"
+	curl -XPOST -H "Authorization:token $PRONTO_GITHUB_ACCESS_TOKEN" https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/$CIRCLE_SHA1 -d "{
+	 \"state\":\"failure\",
+	 \"target_url\":\"google.com\",
+	 \"description\":\"rubocop style check has found violations\",
+	 \"context\":\"Rubocop\"
+	}"
 fi
