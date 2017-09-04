@@ -23,7 +23,7 @@ class ErrorController < ApplicationController
     # get id & help (available to view)
     @id, @help = JSON.parse(response.body).values_at('id', 'response')
 
-    # if new uncovered error message, add it to our table. longgggggggggggggggggggggggggggggggg f***ing line
+    # if new uncovered error message, add it to our table.
     if @id == -1
       @uncovered_error = Error.new(message: @message)
       @uncovered_error.save
