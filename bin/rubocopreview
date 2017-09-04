@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+if bin/bundle exec pronto run -f github_pr -c origin/master
+then
+	echo "all is good"
+else
+	echo "request changes"
+fi
