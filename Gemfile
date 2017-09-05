@@ -19,6 +19,8 @@ gem 'devise'
 
 gem 'pronto', '~> 0.9.5'
 gem 'pronto-rubocop', '~> 0.9.0'
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
+gem 'ap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
