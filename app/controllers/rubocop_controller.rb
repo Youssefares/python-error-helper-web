@@ -3,9 +3,9 @@ class RubocopController < ApplicationController
 
   def webhook
     RestClient.post(
-      'https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/',
-      { 'state': 'success'}.to_json,
-      { content_type: :json, accept: "application/vnd.github.v3+json" }
+      'https://api.github.com/repos/Youssefares/python-error-helper-web/statuses/#{params[:sha]}',
+      { 'state': 'success' }.to_json,
+      content_type: :json, accept: 'application/vnd.github.v3+json'
     )
   end
 end
