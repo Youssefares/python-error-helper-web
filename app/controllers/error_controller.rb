@@ -7,7 +7,6 @@ class ErrorController < ApplicationController
   end
 
   def destroy
-      
     @error = Error.find(params[:id])
     @error.destroy
 
@@ -21,7 +20,7 @@ class ErrorController < ApplicationController
     # get error-help from python-error-helper apiuri = URI("http://python-error-helper.herokuapp.com/error-help")
     response = Net::HTTP.post_form(uri, 'error_message' => @message)
 
-    # get id & help (available to view)
+    # get id & help (available to view) looooooooooooooooooooonnng lineeeeeeeeeeeeeeeeeeee
     @id, @help = JSON.parse(response.body).values_at('id', 'response')
 
     # if new uncovered error message, add it to our table.

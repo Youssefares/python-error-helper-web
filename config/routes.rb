@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'error/list'
   post 'error/help'
 
+  post 'rubocop/webhook/', to: 'rubocop#webhook'
+
   Rails.application.routes.draw do
     resources :error
     root 'error#index'
